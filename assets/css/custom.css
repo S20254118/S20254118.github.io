@@ -182,3 +182,193 @@ a:hover, a:active {
     background-color: rgba(26, 82, 118, 0.08) !important;
     transition: background-color 0.3s ease !important;
 }
+.kompetencijos {
+    padding: 60px 0 !important;
+}
+
+.kanban-stats-panel {
+    background-color: #ffffff !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    margin-bottom: 30px !important;
+}
+
+.stats-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 22px !important;
+}
+
+.stat-box {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 200px !important;
+    background-color: #f4f7f9 !important;
+    border-left: 4px solid #1a5276 !important;
+    border-radius: 10px !important;
+    padding: 15px 20px !important;
+}
+
+.stat-box i {
+    font-size: 1.8rem !important;
+    color: #1a5276 !important;
+    margin-right: 15px !important;
+}
+
+.stat-box span {
+    display: block !important;
+    font-size: 0.9rem !important;
+    color: #666666 !important;
+}
+
+.stat-box strong {
+    font-size: 1.25rem !important;
+    color: #1a5276 !important;
+}
+
+.xp-progress-wrap {
+    margin-bottom: 20px !important;
+}
+
+.xp-progress-label {
+    display: block !important;
+    font-size: 0.95rem !important;
+    font-weight: bold !important;
+    color: #333333 !important;
+    margin-bottom: 8px !important;
+}
+
+.xp-progress-track {
+    width: 100% !important;
+    height: 22px !important;
+    background-color: #e2e6ea !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.xp-progress-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #1a5276, #d35400) !important;
+    color: #ffffff !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+}
+
+.stats-bottom {
+    display: flex !important;
+    justify-content: space-around !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid #e5e5e5 !important;
+    color: #444444 !important;
+    font-size: 1rem !important;
+}
+
+.stats-bottom i {
+    color: #d35400 !important;
+    margin-right: 6px !important;
+}
+
+.stats-bottom strong {
+    color: #1a5276 !important;
+}
+
+.kanban-board {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
+    gap: 20px !important;
+}
+
+.kanban-column {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 18px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.column-title {
+    font-size: 1.15rem !important;
+    font-weight: bold !important;
+    color: #1a5276 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 16px !important;
+    border-bottom: 3px solid #1a5276 !important;
+}
+
+.col-plan .column-title {
+    border-bottom-color: #f39c12 !important;
+}
+
+.col-learn .column-title {
+    border-bottom-color: #2980b9 !important;
+}
+
+.col-done .column-title {
+    border-bottom-color: #27ae60 !important;
+}
+
+.kanban-card {
+    background-color: #f9fbfc !important;
+    border: 1px solid #e3e8ec !important;
+    border-radius: 10px !important;
+    padding: 14px !important;
+    margin-bottom: 12px !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.kanban-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+.kanban-card h5 {
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: #222222 !important;
+    margin-bottom: 10px !important;
+}
+
+.card-info {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 0.85rem !important;
+}
+
+.status {
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+}
+
+.status.plan {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+}
+
+.status.learn {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+}
+
+.status.done {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+.xp {
+    font-weight: bold !important;
+    color: #444444 !important;
+    background-color: #eef2f5 !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+}
