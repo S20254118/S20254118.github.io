@@ -372,3 +372,53 @@ a:hover, a:active {
     padding: 4px 8px !important;
     border-radius: 6px !important;
 }
+#services, .services {
+    background-image: linear-gradient(-45deg, #1a5276, #d35400, #2980b9, #e67e22) !important;
+    background-size: 300% 300% !important;
+    animation: fonoJudejimas 5s ease infinite !important;
+}
+
+@keyframes fonoJudejimas {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#about, .about {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.figura-apskritimas {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 80px;
+    height: 80px;
+    background: #d35400;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: plaukiojimas 4s ease-in-out infinite;
+}
+
+.figura-kvadratas {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: #1a5276;
+    opacity: 0.3;
+    animation: sukimasis 6s linear infinite;
+}
+
+@keyframes plaukiojimas {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes sukimasis {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
