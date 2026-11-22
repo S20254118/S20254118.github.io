@@ -422,3 +422,6 @@ a:hover, a:active {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+.contact p { color: #d0d7de !important; }
+.klaida-laukas { border: 2px solid #e74c3c !important; }
+.klaida { color: #e74c3c; font-size: 0.85rem; display: block; margin-top: 4px; }
