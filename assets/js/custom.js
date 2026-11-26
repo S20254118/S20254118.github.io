@@ -1,3 +1,4 @@
+if (document.getElementById('manoForma')) {
 const forma = document.getElementById('manoForma');
 const mygtukas = document.getElementById('siustiBtn');
 const isvalytiBtn = document.getElementById('isvalytiBtn');
@@ -90,4 +91,81 @@ isvalytiBtn.addEventListener('click', function () {
         rodytiKlaida(laukas, '');
     });
     mygtukas.disabled = true;
-});
+});}
+if (document.getElementById('kompetencijos')) {
+    const pradiniai = [
+        { pavadinimas: 'PLC programavimas', busena: 'Planuojama', xp: 60 },
+        { pavadinimas: 'FPGA pagrindai', busena: 'Planuojama', xp: 50 },
+        { pavadinimas: 'C/C++ mikrovaldikliams', busena: 'Mokomasi', xp: 50 },
+        { pavadinimas: 'Tinklų pagrindai', busena: 'Mokomasi', xp: 40 },
+        { pavadinimas: 'KiCad projektavimas', busena: 'Atlikta', xp: 70 },
+        { pavadinimas: 'MATLAB modeliavimas', busena: 'Atlikta', xp: 80 }
+    ];
+
+    const stulpeliai = {
+        Planuojama: document.getElementById('col-plan'),
+        Mokomasi: document.getElementById('col-learn'),
+        Atlikta: document.getElementById('col-done')
+    };
+
+    const igudziai = JSON.parse(localStorage.getItem('manoIgudziai')) || pradiniai;
+
+    function atvaizduotiKorteles() {
+        Object.values(stulpeliai).forEach(stulpelis => stulpelis.innerHTML = '');
+
+        igudziai.forEach((igudis, i) => {
+            const kortele = document.createElement('div');
+            kortele.className = 'kortele';
+            kortele.innerHTML = `
+                <b>${igudis.pavadinimas}</b>
+                <p><span>XP: ${igudis.xp}</span></p>
+                <select>
+                    <option value="Planuojama">Planuojama</option>
+                    <option value="Mokomasi">Mokomasi</option>
+                    <option value="Atlikta">Atlikta</option>
+                </select>
+            `;
+
+            const pasirinkimas = kortele.querySelector('select');
+            pasirinkimas.value = igudis.busena;
+            pasirinkimas.addEventListener('change', () => keistiBusena(i, pasirinkimas.value));
+
+            stulpeliai[igudis.busena].appendChild(kortele);
+        });
+    }
+
+    function gautiLygi(xp) {
+        if (xp >= 300) return { lygis: 4, rangas: 'Profesionalas', proc: 100 };
+        if (xp >= 150) return { lygis: 3, rangas: 'Specialistas', proc: Math.round(((xp - 150) / 150) * 100) };
+        if (xp >= 50)  return { lygis: 2, rangas: 'Praktikantas', proc: Math.round(((xp - 50) / 100) * 100) };
+        return { lygis: 1, rangas: 'Pradedantysis', proc: Math.round((xp / 50) * 100) };
+    }
+
+    function atnaujintiProgresa() {
+        const atlikti = igudziai.filter(g => g.busena === 'Atlikta');
+        const xp = atlikti.reduce((suma, g) => suma + g.xp, 0);
+        const info = gautiLygi(xp);
+
+        document.getElementById('bendrasXp').textContent = `${xp} XP`;
+        document.getElementById('lygis').textContent = info.lygis;
+        document.getElementById('rangas').textContent = info.rangas;
+
+        const juosta = document.getElementById('progresoJuosta');
+        juosta.style.width = `${info.proc}%`;
+        juosta.textContent = `${info.proc}%`;
+
+        document.getElementById('visiIgudziai').textContent = igudziai.length;
+        document.getElementById('atliktaKiekis').textContent = atlikti.length;
+        document.getElementById('atliktaProcentas').textContent = `${Math.round((atlikti.length / igudziai.length) * 100)}%`;
+    }
+
+    function keistiBusena(index, naujaBusena) {
+        igudziai[index].busena = naujaBusena;
+        localStorage.setItem('manoIgudziai', JSON.stringify(igudziai));
+        atvaizduotiKorteles();
+        atnaujintiProgresa();
+    }
+
+    atvaizduotiKorteles();
+    atnaujintiProgresa();
+}
